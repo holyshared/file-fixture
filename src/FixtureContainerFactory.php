@@ -3,12 +3,14 @@
 namespace holyshared\fixture\file;
 
 use Yosymfony\Toml\Toml;
+use Eloquent\Pathogen\Factory\PathFactory;
+use Eloquent\Pathogen\RelativePath;
+
 
 class FixtureContainerFactory
 {
 
     private $flattener;
-
 
     public function __construct()
     {
@@ -17,14 +19,16 @@ class FixtureContainerFactory
 
     public function createFromFile($configFile)
     {
-        $absolutePath = realpath($configFile);
-        $configDirectory = dirname($absolutePath);
+        $configFilePath = PathFactory::instance()->create($configFile);
+        $configFileDirectory = $configFilePath->parent();
 
-        $configValues = Toml::parse($configFile);
+        $configValues = Toml::parse( $configFilePath->normalize() );
         $result = $this->flattener->flatten($configValues);
 
-        foreach ($result as $key => $relativePath) {
-            $result[$key] = $configDirectory . '/' . $relativePath;
+        foreach ($result as $key => $fixturePath) {
+            $fixtureRelativePath = RelativePath::fromString($fixturePath);
+            $fixturePath = $configFileDirectory->join($fixtureRelativePath);
+            $result[$key] = (string) $fixturePath->normalize();
         }
 
         return new FixtureContainer($result);

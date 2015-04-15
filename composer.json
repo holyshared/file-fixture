@@ -15,7 +15,8 @@
         "yosymfony/toml": "~0.3",
         "easyframework/collections": "~4.0",
         "league/climate": "~2.6",
-        "mustache/mustache": "~2.7"
+        "mustache/mustache": "~2.7",
+        "eloquent/pathogen": "~0.6"
     },
     "require-dev": {
         "peridot-php/peridot": "~1.15",
