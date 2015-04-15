@@ -6,8 +6,14 @@ class FixtureContainerFactory
 {
 
     private $container;
-    private $currentSegments;
+    private $currentPath;
 
+
+    public function __construct()
+    {
+        $this->container = [];
+        $this->currentPath = new PathSegment;
+    }
 
     public function createFromFile($configFile)
     {
@@ -15,9 +21,6 @@ class FixtureContainerFactory
 
     public function createFromArray(array $configValues = [])
     {
-        $this->container = [];
-        $this->currentSegments = [];
-
         $this->walkDictionary($configValues);
 
         return new FixtureContainer($this->container);
@@ -26,16 +29,16 @@ class FixtureContainerFactory
     private function walkDictionary(array $configValues = [])
     {
         foreach ($configValues as $strategy => $value) {
-            $this->currentSegments[] = $strategy;
+            $this->currentPath->moveTo($strategy);
 
             if (is_array($value)) {
                 $this->walkDictionary($value);
             } else {
-                $key = implode($this->currentSegments, ':');
+                $key = (string) $this->currentPath;
                 $this->container[$key] = $value;
             }
 
-            array_pop($this->currentSegments);
+            $this->currentPath->moveParent();
         }
     }
 
