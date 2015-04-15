@@ -1,0 +1,17 @@
+# File fixtures
+
+[static.loader.default]
+success = "/path/to/file.php"
+failure = "/path/to/file.php"
+
+[static.loader.another]
+success = "/path/to/file.php"
+failure = "/path/to/file.php"
+
+[template.loader]
+success = "/path/to/file.php"
+failure = "/path/to/file.php"
+
+[art.loader]
+success = "/path/to/file.php"
+failure = "/path/to/file.php"

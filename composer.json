@@ -1,0 +1,28 @@
+{
+    "name": "holyshared/file-fixture",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "holyshared",
+            "email": "holy.shared.design@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "yosymfony/toml": "~0.3",
+        "easyframework/collections": "~4.0"
+    },
+    "require-dev": {
+        "peridot-php/peridot": "~1.15",
+        "peridot-php/peridot-dot-reporter": "~1.0",
+        "expect/peridot-expect-plugin": "~2.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "holyshared\\fixture\\file\\": "src"
+      }
+    },
+    "scripts": {
+        "test": "vendor/bin/peridot -r dot spec"
+    }
+}
