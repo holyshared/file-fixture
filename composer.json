@@ -10,7 +10,9 @@
     "minimum-stability": "stable",
     "require": {
         "yosymfony/toml": "~0.3",
-        "easyframework/collections": "~4.0"
+        "easyframework/collections": "~4.0",
+        "league/climate": "~2.6",
+        "mustache/mustache": "~2.7"
     },
     "require-dev": {
         "peridot-php/peridot": "~1.15",
