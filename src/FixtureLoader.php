@@ -2,6 +2,7 @@
 
 namespace holyshared\fixture\file;
 
+use holyshared\fixture\file\container\ProcessorContainer;
 use holyshared\fixture\file\processor\FileProcessor;
 use holyshared\fixture\file\processor\TemplateProcessor;
 use holyshared\fixture\file\processor\ArtProcessor;

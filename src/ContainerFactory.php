@@ -5,6 +5,7 @@ namespace holyshared\fixture\file;
 use Yosymfony\Toml\Toml;
 use Eloquent\Pathogen\Factory\PathFactory;
 use Eloquent\Pathogen\RelativePath;
+use holyshared\fixture\file\container\FixtureContainer;
 
 
 class ContainerFactory

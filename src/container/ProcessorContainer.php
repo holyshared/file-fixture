@@ -1,8 +1,9 @@
 <?php
 
-namespace holyshared\fixture\file;
+namespace holyshared\fixture\file\container;
 
 use Collections\Dictionary;
+use holyshared\fixture\file\Container;
 
 
 class ProcessorContainer implements Container

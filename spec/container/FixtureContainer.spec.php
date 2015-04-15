@@ -1,6 +1,6 @@
 <?php
 
-use holyshared\fixture\file\FixtureContainer;
+use holyshared\fixture\file\container\FixtureContainer;
 
 describe('FixtureContainer', function() {
     beforeEach(function() {
