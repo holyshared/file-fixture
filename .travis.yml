@@ -9,7 +9,7 @@ before_script:
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction --prefer-source --dev
 script:
-  - composer test
+  - vendor/bin/peridot -r dot spec
 matrix:
   fast_finish: true
   allow_failures:

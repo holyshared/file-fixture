@@ -11,8 +11,8 @@ describe('FixtureContainerFactory', function() {
         });
         it('return FixtureContainer', function() {
             expect($this->container)->toBeAnInstanceOf('holyshared\fixture\file\FixtureContainer');
-            expect($this->container->get('static:loader:default:success'))->toEqual('/path/to/file.php');
-            expect($this->container->get('static:loader:default:failure'))->toEqual('/path/to/file.php');
+            expect($this->container->get('static:loader:default:success'))->toEqual('static.txt');
+            expect($this->container->get('static:loader:default:failure'))->toEqual('static.txt');
         });
     });
     describe('#createFromArray', function() {

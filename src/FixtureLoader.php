@@ -2,17 +2,29 @@
 
 namespace holyshared\fixture\file;
 
-class FixtureLoader implements FixtureLoadable
+use holyshared\fixture\file\processor\FileProcessor;
+use holyshared\fixture\file\processor\TemplateProcessor;
+use holyshared\fixture\file\processor\ArtProcessor;
+
+
+class FixtureLoader implements Loadable
 {
 
     private $container;
-//    private $strategies;
-
+    private $processors;
 
     public function __construct(FixtureContainer $container)
     {
+        $static = new FileProcessor();
+        $template = new TemplateProcessor($static);
+        $art = new ArtProcessor($template);
+
         $this->container = $container;
-    //    $this->strategies = StrategyRegistry::fromArray($strategies);
+        $this->processors = [
+            'static' => $static,
+            'template' => $template,
+            'art' => $art
+        ];
     }
 
     /**
@@ -21,13 +33,14 @@ class FixtureLoader implements FixtureLoadable
      */
     public function load($name, array $arguments = [])
     {
-        $fixture = $this->container->get($name);
-        return $fixture->load($arguments);
+        $parts = explode(':', $name);
+        $processor = array_shift($parts);
+        $namespace = implode($parts, ':');
 
+        $path = $this->container->get($name);
 
-//        list($storategy, $namespace) = explode($name, ':');
-//        $storategy = $this->strategies->get($storategy);
-//        return $storategy->load($name, $arguments);
+        $processor = $this->processors[$processor];
+        return $processor->load($path, $arguments);
     }
 
 }

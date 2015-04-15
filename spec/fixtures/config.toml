@@ -1,17 +1,17 @@
 # File fixtures
 
 [static.loader.default]
-success = "/path/to/file.php"
-failure = "/path/to/file.php"
+success = "static.txt"
+failure = "static.txt"
 
 [static.loader.another]
-success = "/path/to/file.php"
-failure = "/path/to/file.php"
+success = "static.txt"
+failure = "static.txt"
 
 [template.loader]
-success = "/path/to/file.php"
-failure = "/path/to/file.php"
+success = "template.ms"
+failure = "template.ms"
 
 [art.loader]
-success = "/path/to/file.php"
-failure = "/path/to/file.php"
+success = "art.txt"
+failure = "art.txt"

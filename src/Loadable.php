@@ -2,7 +2,7 @@
 
 namespace holyshared\fixture\file;
 
-interface FixtureLoadable
+interface Loadable
 {
     public function load($name, array $arguments = []);
 }
