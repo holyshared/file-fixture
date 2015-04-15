@@ -2,11 +2,15 @@
 
 namespace holyshared\fixture\file;
 
+use Yosymfony\Toml\Toml;
+
 class FixtureContainerFactory
 {
 
     public function createFromFile($configFile)
     {
+        $configValues = Toml::parse($configFile);
+        return $this->createFromArray($configValues);
     }
 
     public function createFromArray(array $configValues = [])
