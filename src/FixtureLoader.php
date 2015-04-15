@@ -5,6 +5,7 @@ namespace holyshared\fixture\file;
 use holyshared\fixture\file\processor\FileProcessor;
 use holyshared\fixture\file\processor\TemplateProcessor;
 use holyshared\fixture\file\processor\ArtProcessor;
+use Yosymfony\Toml\Toml;
 
 
 class FixtureLoader implements Loadable
@@ -20,11 +21,11 @@ class FixtureLoader implements Loadable
         $art = new ArtProcessor($template);
 
         $this->container = $container;
-        $this->processors = [
+        $this->processors = new ProcessorContainer([
             'static' => $static,
             'template' => $template,
             'art' => $art
-        ];
+        ]);
     }
 
     /**
@@ -38,8 +39,7 @@ class FixtureLoader implements Loadable
         $namespace = implode($parts, ':');
 
         $path = $this->container->get($name);
-
-        $processor = $this->processors[$processor];
+        $processor = $this->processors->get($processor);
         return $processor->load($path, $arguments);
     }
 
