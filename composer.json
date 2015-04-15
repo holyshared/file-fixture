@@ -1,5 +1,7 @@
 {
     "name": "holyshared/file-fixture",
+    "keyword": ["test", "fixture", "static", "art", "template"],
+    "description": "Fixture file loader for unit test",
     "license": "MIT",
     "authors": [
         {
@@ -9,6 +11,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "php": ">=5.4.0",
         "yosymfony/toml": "~0.3",
         "easyframework/collections": "~4.0",
         "league/climate": "~2.6",
