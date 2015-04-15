@@ -10,6 +10,8 @@ use Mustache_Engine;
 final class TemplateFile extends FixtureFile implements FileLoadable
 {
 
+    private $mustache;
+
     public function __construct($path)
     {
         $this->mustache = new Mustache_Engine;
