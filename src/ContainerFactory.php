@@ -7,7 +7,7 @@ use Eloquent\Pathogen\Factory\PathFactory;
 use Eloquent\Pathogen\RelativePath;
 
 
-class FixtureContainerFactory
+class ContainerFactory
 {
 
     private $flattener;

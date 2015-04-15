@@ -1,12 +1,13 @@
 <?php
 
 use holyshared\fixture\file\FixtureContainer;
-use holyshared\fixture\file\FixtureContainerFactory;
+use holyshared\fixture\file\ContainerFactory;
 
-describe('FixtureContainerFactory', function() {
+
+describe('ContainerFactory', function() {
     describe('#createFromFile', function() {
         beforeEach(function() {
-            $factory = new FixtureContainerFactory();
+            $factory = new ContainerFactory();
             $this->container = $factory->createFromFile(__DIR__ . '/fixtures/config.toml');
         });
         it('return FixtureContainer', function() {
@@ -33,7 +34,7 @@ describe('FixtureContainerFactory', function() {
                     ]
                 ]
             ];
-            $factory = new FixtureContainerFactory();
+            $factory = new ContainerFactory();
             $this->container = $factory->createFromArray($values);
         });
         it('return FixtureContainer', function() {
