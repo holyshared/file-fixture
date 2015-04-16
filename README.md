@@ -1,17 +1,21 @@
 file-fixture
 ==================================
 
-Simple file fixture loader for unittest.  
-You can easily load the test-based fixture.  
-
 [![Build Status](https://travis-ci.org/holyshared/file-fixture.svg?branch=master)](https://travis-ci.org/holyshared/file-fixture)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/holyshared/file-fixture/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/holyshared/file-fixture/?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/552efada10e7149066000804/badge.svg?style=flat)](https://www.versioneye.com/user/projects/552efada10e7149066000804)
 [![Stories in Ready](https://badge.waffle.io/holyshared/file-fixture.png?label=ready&title=Ready)](https://waffle.io/holyshared/file-fixture)
 
-* [Basic usage](#Basic usage)
-* [Output fixture of terminal](#Output fixture of terminal)
-* [Configuration file](#Configuration file)
+Simple file fixture loader for unittest.  
+You can easily load the test-based fixture.  
+
+Table of contents
+----------------------------------
+
+* [Basic usage](#basic-usage)
+* [Output fixture of terminal](#output-fixture-of-terminal)
+* [Configuration file](#configuration-file)
+
 
 Basic usage
 ----------------------------------
