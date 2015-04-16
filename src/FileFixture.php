@@ -18,7 +18,7 @@ use holyshared\fixture\file\processor\ArtProcessor;
 use Yosymfony\Toml\Toml;
 
 
-class FixtureLoader implements Loadable
+class FileFixture implements Loadable
 {
 
     private $container;
@@ -39,7 +39,7 @@ class FixtureLoader implements Loadable
     }
 
     /**
-     * $loader = new FixtureLoader();
+     * $loader = new FileFixture();
      * $fixture = $loader->load('art.loader.success', [ 'name' => 'foo' ]);
      */
     public function load($name, array $arguments = [])

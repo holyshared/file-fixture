@@ -23,6 +23,6 @@ $fixtures = new FixtureContainer([
     'art:foo' => __DIR__ . '/path/to/art.txt'
 ]);
 
-$loader = new FixtureLoader($fixtures, $processors);
-$loader->load('static:foo', [ 'name' => 'bar' ]);
+$fixture = new FileFixture($fixtures, $processors);
+$fixture->load('static:foo', [ 'name' => 'bar' ]);
 ```
