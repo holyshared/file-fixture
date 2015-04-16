@@ -31,25 +31,45 @@ $fixture->load('static:foo', [ 'name' => 'bar' ]);
 Configuration file
 ----------------------------------
 
-```toml
-# File fixtures
+Using the configuration file, you will be able to easily load the fixture.  
+Example of the fixture to load the [mustache](https://github.com/bobthecow/mustache.php) of template.
 
-[static.loader.default]
-success = "foo.txt"
-failure = "bar.txt"
+### Create a fixture template
+
+```mustache
+{{name}} task was successful.
 ```
 
+### Create a configuration file of fixture
+
+The name of the fixture, you must begin with the name of the **loader**.  
+
+```toml
+[mustache.default]
+successMessage = "template.ms"
+```
+
+The name of this fixture will be **mustache:default:successMessage**.
+
+### Load of fixture
+
+Load the fixture by specifying the name.  
+When the load is successful, I will return the results of template of mustache has been processed.  
 
 ```php
-$static = new FileLoader();
-$template = new TemplateLoader($static);
-$art = new ArtLoader($template);
-
-$loaders = new LoaderContainer([ $static, $template, $art ]);
+$textLoader = new TextLoader();
+$loaders = new LoaderContainer([
+    $textLoader,
+    new MustacheLoader($textLoader)
+]);
 
 $factory = new FixtureContainerFactory();
-$fixtures = $factory->createFromFile('fixtures.toml');
+$fixtures = $factory->createFromFile(__DIR__ . '/fixtures.toml');
 
 $fixture = new FileFixture($fixtures, $loaders);
-$fixture->load('static:loader:default:success');
+$content = $fixture->load('mustache:default:successMessage', [
+    'name' => 'build'
+]);
+
+print $content;
 ```
