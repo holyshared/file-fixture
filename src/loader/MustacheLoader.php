@@ -15,7 +15,7 @@ use holyshared\fixture\FixtureLoader;
 use Mustache_Engine;
 
 
-class MustacheLoader implements FixtureLoader
+final class MustacheLoader implements FixtureLoader
 {
 
     const NAME = 'mustache';
@@ -28,7 +28,7 @@ class MustacheLoader implements FixtureLoader
         return static::NAME;
     }
 
-    public function __construct(FixtureProcessor $loader)
+    public function __construct(FixtureLoader $loader)
     {
         $this->loader = $loader;
         $this->mustache = new Mustache_Engine();
@@ -36,7 +36,7 @@ class MustacheLoader implements FixtureLoader
 
     public function load($path, array $arguments = [])
     {
-        $template = $this->loader->load($path);
+        $template = $this->loader->load($path, $arguments);
         return $this->mustache->render($template, $arguments);
     }
 

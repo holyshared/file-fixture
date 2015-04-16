@@ -2,20 +2,24 @@
 
 use holyshared\fixture\loader\TextLoader;
 use holyshared\fixture\loader\MustacheLoader;
+use Prophecy\Prophet;
 
 describe('MustacheLoader', function() {
     describe('#load', function() {
         beforeEach(function() {
-            $loader = new TextLoader();
-            $this->loader = new MustacheLoader($loader);
             $this->template = __DIR__ . '/../fixtures/template.ms';
-        });
-        it('return loaded content', function() {
-            $values = [
+            $this->values = [
                 'name' => 'foo'
             ];
-            $content = $this->loader->load($this->template, $values);
-            expect($content)->toEqual("foo\n");
+            $this->prophet = new Prophet();
+            $loader = $this->prophet->prophesize('holyshared\fixture\FixtureLoader');
+            $loader->load($this->template, $this->values)->willReturn('{{name}}');
+
+            $this->loader = new MustacheLoader($loader->reveal());
+        });
+        it('return loaded content', function() {
+            $content = $this->loader->load($this->template, $this->values);
+            expect($content)->toEqual("foo");
         });
     });
 });
