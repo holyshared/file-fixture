@@ -15,15 +15,17 @@ use holyshared\fixture\FixtureLoader;
 use Mustache_Engine;
 
 
-class TemplateLoader implements FixtureLoader
+class MustacheLoader implements FixtureLoader
 {
+
+    const NAME = 'mustache';
 
     private $loader;
     private $mustache;
 
     public function getName()
     {
-        return 'template';
+        return static::NAME;
     }
 
     public function __construct(FixtureProcessor $loader)

@@ -1,13 +1,13 @@
 <?php
 
 use holyshared\fixture\loader\TextLoader;
-use holyshared\fixture\loader\TemplateLoader;
+use holyshared\fixture\loader\MustacheLoader;
 
-describe('TemplateLoader', function() {
+describe('MustacheLoader', function() {
     describe('#load', function() {
         beforeEach(function() {
             $loader = new TextLoader();
-            $this->loader = new TemplateLoader($loader);
+            $this->loader = new MustacheLoader($loader);
             $this->template = __DIR__ . '/../fixtures/template.ms';
         });
         it('return loaded content', function() {

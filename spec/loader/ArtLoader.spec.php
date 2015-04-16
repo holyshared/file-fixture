@@ -2,14 +2,14 @@
 
 use holyshared\fixture\loader\TextLoader;
 use holyshared\fixture\loader\ArtLoader;
-use holyshared\fixture\loader\TemplateLoader;
+use holyshared\fixture\loader\MustacheLoader;
 
 
 describe('ArtLoader', function() {
     describe('#load', function() {
         beforeEach(function() {
             $loader = new TextLoader();
-            $loader = new TemplateLoader($loader);
+            $loader = new MustacheLoader($loader);
             $this->loader = new ArtLoader($loader);
             $this->template = __DIR__ . '/../fixtures/art.txt';
         });
