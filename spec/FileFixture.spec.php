@@ -1,13 +1,13 @@
 <?php
 
 use holyshared\fixture\file\FileFixture;
-use holyshared\fixture\file\ContainerFactory;
+use holyshared\fixture\file\factory\FixtureContainerFactory;
 
 
 describe('FileFixture', function() {
     describe('#load', function() {
         beforeEach(function() {
-            $factory = new ContainerFactory();
+            $factory = new FixtureContainerFactory();
             $container = $factory->createFromFile(__DIR__ . '/fixtures/config.toml');
             $this->fixture = new FileFixture($container);
         });
