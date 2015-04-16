@@ -1,7 +1,7 @@
 <?php
 
-use holyshared\fixture\file\FileFixture;
-use holyshared\fixture\file\factory\FixtureContainerFactory;
+use holyshared\fixture\FileFixture;
+use holyshared\fixture\factory\FixtureContainerFactory;
 
 
 describe('FileFixture', function() {

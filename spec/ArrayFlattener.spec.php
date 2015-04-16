@@ -1,6 +1,6 @@
 <?php
 
-use holyshared\fixture\file\ArrayFlattener;
+use holyshared\fixture\ArrayFlattener;
 
 describe('ArrayFlattener', function() {
     describe('#flatten', function() {

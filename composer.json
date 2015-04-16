@@ -25,9 +25,9 @@
         "phpspec/prophecy": "~1.4"
     },
     "autoload": {
-      "psr-4": {
-        "holyshared\\fixture\\file\\": "src"
-      }
+        "psr-4": {
+            "holyshared\\fixture\\": "src"
+        }
     },
     "scripts": {
         "test": "vendor/bin/peridot -r dot spec"

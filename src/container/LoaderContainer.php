@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace holyshared\fixture\file\container;
+namespace holyshared\fixture\container;
 
 use Collections\Dictionary;
-use holyshared\fixture\file\Container;
-use holyshared\fixture\file\FixtureLoader;
+use holyshared\fixture\Container;
+use holyshared\fixture\FixtureLoader;
 
 
 class LoaderContainer implements Container

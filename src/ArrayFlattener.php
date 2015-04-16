@@ -1,6 +1,6 @@
 <?php
 
-namespace holyshared\fixture\file;
+namespace holyshared\fixture;
 
 /**
  * This file is part of file-fixture.

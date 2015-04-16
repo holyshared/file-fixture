@@ -9,14 +9,14 @@
  * with this source code in the file LICENSE.
  */
 
-namespace holyshared\fixture\file\factory;
+namespace holyshared\fixture\factory;
 
 use Yosymfony\Toml\Toml;
 use Eloquent\Pathogen\Factory\PathFactory;
 use Eloquent\Pathogen\RelativePath;
-use holyshared\fixture\file\container\FixtureContainer;
-use holyshared\fixture\file\ContainerFactory;
-use holyshared\fixture\file\ArrayFlattener;
+use holyshared\fixture\container\FixtureContainer;
+use holyshared\fixture\ContainerFactory;
+use holyshared\fixture\ArrayFlattener;
 
 
 class FixtureContainerFactory implements ContainerFactory

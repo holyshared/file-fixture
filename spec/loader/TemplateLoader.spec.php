@@ -1,7 +1,7 @@
 <?php
 
-use holyshared\fixture\file\loader\FileLoader;
-use holyshared\fixture\file\loader\TemplateLoader;
+use holyshared\fixture\loader\FileLoader;
+use holyshared\fixture\loader\TemplateLoader;
 
 describe('TemplateLoader', function() {
     describe('#load', function() {

@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace holyshared\fixture\file;
+namespace holyshared\fixture;
 
-use holyshared\fixture\file\container\LoaderContainer;
-use holyshared\fixture\file\loader\FileLoader;
-use holyshared\fixture\file\loader\TemplateLoader;
-use holyshared\fixture\file\loader\ArtLoader;
+use holyshared\fixture\container\LoaderContainer;
+use holyshared\fixture\loader\FileLoader;
+use holyshared\fixture\loader\TemplateLoader;
+use holyshared\fixture\loader\ArtLoader;
 use Yosymfony\Toml\Toml;
 
 

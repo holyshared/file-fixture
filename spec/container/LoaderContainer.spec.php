@@ -1,13 +1,13 @@
 <?php
 
-use holyshared\fixture\file\container\LoaderContainer;
+use holyshared\fixture\container\LoaderContainer;
 use Prophecy\Prophet;
 
 describe('LoaderContainer', function() {
     beforeEach(function() {
         $this->prophet = new Prophet();
 
-        $loader = $this->prophet->prophesize('holyshared\fixture\file\FixtureLoader');
+        $loader = $this->prophet->prophesize('holyshared\fixture\FixtureLoader');
         $loader->getName()->willReturn('foo');
         $this->loader = $loader->reveal();
 

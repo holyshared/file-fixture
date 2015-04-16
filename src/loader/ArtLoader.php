@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace holyshared\fixture\file\loader;
+namespace holyshared\fixture\loader;
 
-use holyshared\fixture\file\FixtureLoader;
+use holyshared\fixture\FixtureLoader;
 use League\CLImate\CLImate;
 use League\CLImate\Util\Output;
 
