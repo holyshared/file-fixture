@@ -10,11 +10,11 @@ Basic usage
 ----------------------------------
 
 ```php
-$static = new FileProcessor();
-$template = new TemplateProcessor($static);
-$art = new ArtProcessor($template);
+$static = new FileLoader();
+$template = new TemplateLoader($static);
+$art = new ArtLoader($template);
 
-$processors = new ProcessorContainer([
+$loaders = new LoaderContainer([
     $static, $template, $art
 ]);
 
@@ -23,6 +23,6 @@ $fixtures = new FixtureContainer([
     'art:foo' => __DIR__ . '/path/to/art.txt'
 ]);
 
-$fixture = new FileFixture($fixtures, $processors);
+$fixture = new FileFixture($fixtures, $loaders);
 $fixture->load('static:foo', [ 'name' => 'bar' ]);
 ```
