@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/holyshared/file-fixture.png?label=ready&title=Ready)](https://waffle.io/holyshared/file-fixture)
 file-fixture
 ==================================
 
