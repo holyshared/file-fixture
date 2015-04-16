@@ -26,3 +26,29 @@ $fixtures = new FixtureContainer([
 $fixture = new FileFixture($fixtures, $loaders);
 $fixture->load('static:foo', [ 'name' => 'bar' ]);
 ```
+
+Configuration file
+----------------------------------
+
+```toml
+# File fixtures
+
+[static.loader.default]
+success = "foo.txt"
+failure = "bar.txt"
+```
+
+
+```php
+$static = new FileLoader();
+$template = new TemplateLoader($static);
+$art = new ArtLoader($template);
+
+$loaders = new LoaderContainer([ $static, $template, $art ]);
+
+$factory = new FixtureContainerFactory();
+$fixtures = $factory->createFromFile('fixtures.toml');
+
+$fixture = new FileFixture($fixtures, $loaders);
+$fixture->load('static:loader:default:success');
+```
