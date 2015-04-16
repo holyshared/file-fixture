@@ -45,7 +45,7 @@ Loader is compatible with text data, [mustache](https://github.com/bobthecow/mus
 Output fixture of terminal
 ----------------------------------
 
-With **ArtLoader**, you can load the color ring text data.
+With **ArtLoader**, you can load the coloring text data.
 
 ### Create a fixture file
 
