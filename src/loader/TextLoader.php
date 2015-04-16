@@ -14,12 +14,14 @@ namespace holyshared\fixture\loader;
 use holyshared\fixture\FixtureLoader;
 
 
-class FileLoader implements FixtureLoader
+final class TextLoader implements FixtureLoader
 {
+
+    const NAME = 'text';
 
     public function getName()
     {
-        return 'static';
+        return static::NAME;
     }
 
     public function load($path, array $arguments = [])

@@ -1,6 +1,6 @@
 <?php
 
-use holyshared\fixture\loader\FileLoader;
+use holyshared\fixture\loader\TextLoader;
 use holyshared\fixture\loader\ArtLoader;
 use holyshared\fixture\loader\TemplateLoader;
 
@@ -8,7 +8,7 @@ use holyshared\fixture\loader\TemplateLoader;
 describe('ArtLoader', function() {
     describe('#load', function() {
         beforeEach(function() {
-            $loader = new FileLoader();
+            $loader = new TextLoader();
             $loader = new TemplateLoader($loader);
             $this->loader = new ArtLoader($loader);
             $this->template = __DIR__ . '/../fixtures/art.txt';

@@ -1,12 +1,12 @@
 <?php
 
-use holyshared\fixture\loader\FileLoader;
+use holyshared\fixture\loader\TextLoader;
 use holyshared\fixture\loader\TemplateLoader;
 
 describe('TemplateLoader', function() {
     describe('#load', function() {
         beforeEach(function() {
-            $loader = new FileLoader();
+            $loader = new TextLoader();
             $this->loader = new TemplateLoader($loader);
             $this->template = __DIR__ . '/../fixtures/template.ms';
         });
