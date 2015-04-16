@@ -1,22 +1,22 @@
 <?php
 
-use holyshared\fixture\file\container\ProcessorContainer;
+use holyshared\fixture\file\container\LoaderContainer;
 use Prophecy\Prophet;
 
-describe('ProcessorContainer', function() {
+describe('LoaderContainer', function() {
     beforeEach(function() {
         $this->prophet = new Prophet();
 
-        $processor = $this->prophet->prophesize('holyshared\fixture\file\FixtureProcessor');
-        $processor->getName()->willReturn('foo');
-        $this->processor = $processor->reveal();
+        $loader = $this->prophet->prophesize('holyshared\fixture\file\FixtureLoader');
+        $loader->getName()->willReturn('foo');
+        $this->loader = $loader->reveal();
 
-        $this->container = new ProcessorContainer();
-        $this->container->register($this->processor);
+        $this->container = new LoaderContainer();
+        $this->container->register($this->loader);
     });
     describe('#get', function() {
         it('return content', function() {
-            expect($this->container->get('foo'))->toEqual($this->processor);
+            expect($this->container->get('foo'))->toEqual($this->loader);
         });
     });
     describe('#has', function() {

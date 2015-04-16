@@ -9,16 +9,16 @@
  * with this source code in the file LICENSE.
  */
 
-namespace holyshared\fixture\file\processor;
+namespace holyshared\fixture\file\loader;
 
-use holyshared\fixture\file\FixtureProcessor;
+use holyshared\fixture\file\FixtureLoader;
 use Mustache_Engine;
 
 
-class TemplateProcessor implements FixtureProcessor
+class TemplateLoader implements FixtureLoader
 {
 
-    private $processor;
+    private $loader;
     private $mustache;
 
     public function getName()
@@ -26,15 +26,15 @@ class TemplateProcessor implements FixtureProcessor
         return 'template';
     }
 
-    public function __construct(FixtureProcessor $processor, array $options = [])
+    public function __construct(FixtureProcessor $loader)
     {
-        $this->processor = $processor;
-        $this->mustache = new Mustache_Engine($options);
+        $this->loader = $loader;
+        $this->mustache = new Mustache_Engine();
     }
 
     public function load($path, array $arguments = [])
     {
-        $template = $this->processor->load($path);
+        $template = $this->loader->load($path);
         return $this->mustache->render($template, $arguments);
     }
 

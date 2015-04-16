@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace holyshared\fixture\file\processor;
+namespace holyshared\fixture\file\loader;
 
-use holyshared\fixture\file\FixtureProcessor;
+use holyshared\fixture\file\FixtureLoader;
 
 
-class FileProcessor implements FixtureProcessor
+class FileLoader implements FixtureLoader
 {
 
     public function getName()

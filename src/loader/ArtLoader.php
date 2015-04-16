@@ -9,26 +9,26 @@
  * with this source code in the file LICENSE.
  */
 
-namespace holyshared\fixture\file\processor;
+namespace holyshared\fixture\file\loader;
 
-use holyshared\fixture\file\FixtureProcessor;
+use holyshared\fixture\file\FixtureLoader;
 use League\CLImate\CLImate;
 use League\CLImate\Util\Output;
 
 
-class ArtProcessor implements FixtureProcessor
+class ArtLoader implements FixtureLoader
 {
 
     private $cli;
     private $output;
-    private $processor;
+    private $loader;
 
     public function getName()
     {
         return 'art';
     }
 
-    public function __construct(FixtureProcessor $processor)
+    public function __construct(FixtureLoader $loader)
     {
         $this->output = new Output();
         $this->output->sameLine();
@@ -36,12 +36,12 @@ class ArtProcessor implements FixtureProcessor
 
         $this->cli = new CLImate();
         $this->cli->setOutput($this->output);
-        $this->processor = $processor;
+        $this->loader = $loader;
     }
 
     public function load($path, array $arguments = [])
     {
-        $content = $this->processor->load($path, $arguments);
+        $content = $this->loader->load($path, $arguments);
         $this->cli->out($content);
 
         $bufferWriter = $this->output->get('buffer');

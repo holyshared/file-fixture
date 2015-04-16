@@ -13,38 +13,38 @@ namespace holyshared\fixture\file\container;
 
 use Collections\Dictionary;
 use holyshared\fixture\file\Container;
-use holyshared\fixture\file\FixtureProcessor;
+use holyshared\fixture\file\FixtureLoader;
 
 
-class ProcessorContainer implements Container
+class LoaderContainer implements Container
 {
 
     /**
-    * @var \Collections\Dictionary
-    */
-    private $processors;
+     * @var \Collections\Dictionary
+     */
+    private $loaders;
 
     /**
-    * @param array $fixtures
-    */
+     * @param array $fixtures
+     */
     public function __construct(array $processors = [])
     {
-        $this->processors = Dictionary::fromArray($processors);
+        $this->loaders = Dictionary::fromArray($processors);
     }
 
     public function get($name)
     {
-        return $this->processors->get($name);
+        return $this->loaders->get($name);
     }
 
     public function has($name)
     {
-        return $this->processors->containsKey($name);
+        return $this->loaders->containsKey($name);
     }
 
-    public function register(FixtureProcessor $processor)
+    public function register(FixtureLoader $loader)
     {
-        $this->processors->add($processor->getName(), $processor);
+        $this->loaders->add($loader->getName(), $loader);
         return $this;
     }
 

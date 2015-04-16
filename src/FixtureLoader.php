@@ -11,11 +11,7 @@
 
 namespace holyshared\fixture\file;
 
-interface FixtureProcessor
+interface FixtureLoader extends Loadable
 {
-
     public function getName();
-
-    public function load($path, array $arguments = []);
-
 }

@@ -11,27 +11,27 @@
 
 namespace holyshared\fixture\file;
 
-use holyshared\fixture\file\container\ProcessorContainer;
-use holyshared\fixture\file\processor\FileProcessor;
-use holyshared\fixture\file\processor\TemplateProcessor;
-use holyshared\fixture\file\processor\ArtProcessor;
+use holyshared\fixture\file\container\LoaderContainer;
+use holyshared\fixture\file\loader\FileLoader;
+use holyshared\fixture\file\loader\TemplateLoader;
+use holyshared\fixture\file\loader\ArtLoader;
 use Yosymfony\Toml\Toml;
 
 
 class FileFixture implements Loadable
 {
 
+    private $loaders;
     private $container;
-    private $processors;
 
     public function __construct(FixtureContainer $container)
     {
-        $static = new FileProcessor();
-        $template = new TemplateProcessor($static);
-        $art = new ArtProcessor($template);
+        $static = new FileLoader();
+        $template = new TemplateLoader($static);
+        $art = new ArtLoader($template);
 
         $this->container = $container;
-        $this->processors = new ProcessorContainer([
+        $this->loaders = new LoaderContainer([
             'static' => $static,
             'template' => $template,
             'art' => $art
@@ -45,17 +45,17 @@ class FileFixture implements Loadable
     public function load($name, array $arguments = [])
     {
         $parts = explode(':', $name);
-        $processor = array_shift($parts);
+        $loader = array_shift($parts);
         $namespace = implode($parts, ':');
 
         $path = $this->container->get($name);
-        $processor = $this->processors->get($processor);
-        return $processor->load($path, $arguments);
+        $loader = $this->loaders->get($loader);
+        return $loader->load($path, $arguments);
     }
 
-    public function registerProcessor(FixtureProcessor $processor)
+    public function registerProcessor(FixtureLoader $loader)
     {
-        $this->processors->register($processor);
+        $this->loaders->register($loader);
         return $this;
     }
 
