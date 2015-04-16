@@ -5,22 +5,23 @@ namespace holyshared\fixture\file\processor;
 use holyshared\fixture\file\FixtureProcessor;
 use League\CLImate\CLImate;
 use League\CLImate\Util\Output;
-use League\CLImate\Util\Writer\WriterInterface;
 
 
-class ArtProcessor implements FixtureProcessor, WriterInterface
+class ArtProcessor implements FixtureProcessor
 {
 
-    private $content = '';
+    private $cli;
+    private $output;
     private $processor;
 
     public function __construct(FixtureProcessor $processor)
     {
-        $output = new Output($this);
-        $output->sameLine();
+        $this->output = new Output();
+        $this->output->sameLine();
+        $this->output->defaultTo('buffer');
 
         $this->cli = new CLImate();
-        $this->cli->setOutput($output);
+        $this->cli->setOutput($this->output);
         $this->processor = $processor;
     }
 
@@ -28,12 +29,9 @@ class ArtProcessor implements FixtureProcessor, WriterInterface
     {
         $content = $this->processor->load($path, $arguments);
         $this->cli->out($content);
-        return $this->content;
-    }
 
-    public function write($content)
-    {
-        $this->content .= $content;
+        $bufferWriter = $this->output->get('buffer');
+        return $bufferWriter->get();
     }
 
 }

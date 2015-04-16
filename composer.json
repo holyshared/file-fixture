@@ -14,7 +14,7 @@
         "php": ">=5.4.0",
         "yosymfony/toml": "~0.3",
         "easyframework/collections": "~4.0",
-        "league/climate": "~2.6",
+        "league/climate": "~3.0",
         "mustache/mustache": "~2.7",
         "eloquent/pathogen": "~0.6"
     },
