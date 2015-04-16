@@ -23,6 +23,11 @@ class ArtProcessor implements FixtureProcessor
     private $output;
     private $processor;
 
+    public function getName()
+    {
+        return 'art';
+    }
+
     public function __construct(FixtureProcessor $processor)
     {
         $this->output = new Output();

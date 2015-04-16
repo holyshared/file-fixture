@@ -21,6 +21,11 @@ class TemplateProcessor implements FixtureProcessor
     private $processor;
     private $mustache;
 
+    public function getName()
+    {
+        return 'template';
+    }
+
     public function __construct(FixtureProcessor $processor, array $options = [])
     {
         $this->processor = $processor;

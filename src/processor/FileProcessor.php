@@ -17,6 +17,11 @@ use holyshared\fixture\file\FixtureProcessor;
 class FileProcessor implements FixtureProcessor
 {
 
+    public function getName()
+    {
+        return 'static';
+    }
+
     public function load($path, array $arguments = [])
     {
         return file_get_contents($path);

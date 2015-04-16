@@ -14,6 +14,8 @@ namespace holyshared\fixture\file;
 interface FixtureProcessor
 {
 
+    public function getName();
+
     public function load($path, array $arguments = []);
 
 }

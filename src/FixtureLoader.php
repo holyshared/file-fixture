@@ -53,4 +53,10 @@ class FixtureLoader implements Loadable
         return $processor->load($path, $arguments);
     }
 
+    public function registerProcessor(FixtureProcessor $processor)
+    {
+        $this->processors->register($processor);
+        return $this;
+    }
+
 }

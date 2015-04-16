@@ -13,6 +13,7 @@ namespace holyshared\fixture\file\container;
 
 use Collections\Dictionary;
 use holyshared\fixture\file\Container;
+use holyshared\fixture\file\FixtureProcessor;
 
 
 class ProcessorContainer implements Container
@@ -39,6 +40,12 @@ class ProcessorContainer implements Container
     public function has($name)
     {
         return $this->processors->containsKey($name);
+    }
+
+    public function register(FixtureProcessor $processor)
+    {
+        $this->processors->add($processor->getName(), $processor);
+        return $this;
     }
 
 }
