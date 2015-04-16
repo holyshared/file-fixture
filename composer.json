@@ -1,7 +1,7 @@
 {
     "name": "holyshared/file-fixture",
     "keyword": ["test", "fixture", "static", "art", "template"],
-    "description": "Fixture file loader for unit test",
+    "description": "Simple file fixture loader for unittest",
     "license": "MIT",
     "authors": [
         {
