@@ -31,7 +31,6 @@ class FileFixture implements Loadable
     {
         $parts = explode(':', $name);
         $loader = array_shift($parts);
-        $namespace = implode($parts, ':');
 
         $path = $this->fixtures->get($name);
         $loader = $this->loaders->get($loader);
