@@ -42,6 +42,15 @@ Loader is compatible with text data, [mustache](https://github.com/bobthecow/mus
 * ArtLoader - Load the ASCII art.
 
 
+Terminal
+----------------------------------
+
+
+
+
+
+
+
 Configuration file
 ----------------------------------
 
