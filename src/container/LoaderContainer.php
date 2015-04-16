@@ -25,11 +25,12 @@ class LoaderContainer implements Container
     private $loaders;
 
     /**
-     * @param array $fixtures
+     * @param FixtureLoader[] $loaders
      */
-    public function __construct(array $processors = [])
+    public function __construct(array $loaders = [])
     {
-        $this->loaders = Dictionary::fromArray($processors);
+        $this->loaders = new Dictionary();
+        $this->registerAll($loaders);
     }
 
     public function get($name)
@@ -45,6 +46,14 @@ class LoaderContainer implements Container
     public function register(FixtureLoader $loader)
     {
         $this->loaders->add($loader->getName(), $loader);
+        return $this;
+    }
+
+    public function registerAll(array $loaders = [])
+    {
+        foreach ($loaders as $loader) {
+            $this->register($loader);
+        }
         return $this;
     }
 

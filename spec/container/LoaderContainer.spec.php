@@ -11,8 +11,7 @@ describe('LoaderContainer', function() {
         $loader->getName()->willReturn('foo');
         $this->loader = $loader->reveal();
 
-        $this->container = new LoaderContainer();
-        $this->container->register($this->loader);
+        $this->container = new LoaderContainer([ $this->loader ]);
     });
     describe('#get', function() {
         it('return content', function() {
