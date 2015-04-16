@@ -10,23 +10,34 @@ file-fixture
 Basic usage
 ----------------------------------
 
-```php
-$static = new FileLoader();
-$template = new TemplateLoader($static);
-$art = new ArtLoader($template);
+Will be able to load the fixture in four steps.
 
+1. Create a loader of container
+2. Create a fixture of container
+3. Create a FileFixture
+4. Load fixture from the container.
+
+```php
 $loaders = new LoaderContainer([
-    $static, $template, $art
+    new TextLoader()
 ]);
 
 $fixtures = new FixtureContainer([
-    'static:foo' => __DIR__ . '/path/to/file.txt',
-    'art:foo' => __DIR__ . '/path/to/art.txt'
+    'text:default:readme' => __DIR__ . '/README.md'
 ]);
 
 $fixture = new FileFixture($fixtures, $loaders);
-$fixture->load('static:foo', [ 'name' => 'bar' ]);
+$content = $fixture->load('text:default:readme');
+
+print $content;
 ```
+
+Loader is compatible with text data, [mustache](https://github.com/bobthecow/mustache.php) template, ASCII art.  
+
+* TextLoader - Load the text data.
+* MustacheLoader - Load the [mustache](https://github.com/bobthecow/mustache.php) template
+* ArtLoader - Load the ASCII art.
+
 
 Configuration file
 ----------------------------------
@@ -54,7 +65,7 @@ The name of this fixture will be **mustache:default:successMessage**.
 ### Load of fixture
 
 Load the fixture by specifying the name.  
-When the load is successful, I will return the results of template of mustache has been processed.  
+When the load is successful, I will return the results of template of [mustache](https://github.com/bobthecow/mustache.php) has been processed.  
 
 ```php
 $textLoader = new TextLoader();
