@@ -28,7 +28,7 @@ final class MustacheLoader implements FixtureLoader
         return static::NAME;
     }
 
-    public function __construct(FixtureProcessor $loader)
+    public function __construct(FixtureLoader $loader)
     {
         $this->loader = $loader;
         $this->mustache = new Mustache_Engine();
