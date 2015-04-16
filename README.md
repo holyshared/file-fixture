@@ -9,6 +9,9 @@ You can easily load the test-based fixture.
 [![Dependency Status](https://www.versioneye.com/user/projects/552efada10e7149066000804/badge.svg?style=flat)](https://www.versioneye.com/user/projects/552efada10e7149066000804)
 [![Stories in Ready](https://badge.waffle.io/holyshared/file-fixture.png?label=ready&title=Ready)](https://waffle.io/holyshared/file-fixture)
 
+* [Basic usage](#Basic usage)
+* [Output fixture of terminal](#Output fixture of terminal)
+* [Configuration file](#Configuration file)
 
 Basic usage
 ----------------------------------
