@@ -15,7 +15,7 @@ use holyshared\fixture\FixtureLoader;
 use Mustache_Engine;
 
 
-class MustacheLoader implements FixtureLoader
+final class MustacheLoader implements FixtureLoader
 {
 
     const NAME = 'mustache';

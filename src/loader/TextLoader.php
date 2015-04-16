@@ -26,6 +26,10 @@ final class TextLoader implements FixtureLoader
 
     public function load($path, array $arguments = [])
     {
+        if (file_exists($path) === false) {
+            throw new FixtureFileNotFoundException("File {$path} was not found");
+        }
+
         return file_get_contents($path);
     }
 

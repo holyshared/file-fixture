@@ -16,7 +16,7 @@ use League\CLImate\CLImate;
 use League\CLImate\Util\Output;
 
 
-class ArtLoader implements FixtureLoader
+final class ArtLoader implements FixtureLoader
 {
 
     private $cli;
