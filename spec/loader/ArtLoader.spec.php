@@ -3,15 +3,21 @@
 use holyshared\fixture\loader\TextLoader;
 use holyshared\fixture\loader\ArtLoader;
 use holyshared\fixture\loader\MustacheLoader;
+use Prophecy\Prophet;
 
 
 describe('ArtLoader', function() {
     describe('#load', function() {
         beforeEach(function() {
-            $loader = new TextLoader();
-            $loader = new MustacheLoader($loader);
-            $this->loader = new ArtLoader($loader);
+            $this->values = [ 'name' => 'foo' ];
             $this->template = __DIR__ . '/../fixtures/art.txt';
+
+            $this->prophet = new Prophet();
+
+            $loader = $this->prophet->prophesize('holyshared\fixture\FixtureLoader');
+            $loader->load($this->template, $this->values)->willReturn("<green>foo</green>\n");
+
+            $this->loader = new ArtLoader($loader->reveal());
         });
         it('return loaded content', function() {
             $template = $this->template;

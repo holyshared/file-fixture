@@ -8,17 +8,17 @@ describe('MustacheLoader', function() {
     describe('#load', function() {
         beforeEach(function() {
             $this->template = __DIR__ . '/../fixtures/template.ms';
-
+            $this->values = [
+                'name' => 'foo'
+            ];
+            $this->prophet = new Prophet();
             $loader = $this->prophet->prophesize('holyshared\fixture\FixtureLoader');
-            $loader->load($this->template)->willReturn('{{name}}');
+            $loader->load($this->template, $this->values)->willReturn('{{name}}');
 
             $this->loader = new MustacheLoader($loader->reveal());
         });
         it('return loaded content', function() {
-            $values = [
-                'name' => 'foo'
-            ];
-            $content = $this->loader->load($this->template, $values);
+            $content = $this->loader->load($this->template, $this->values);
             expect($content)->toEqual("foo");
         });
     });

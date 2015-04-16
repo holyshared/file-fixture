@@ -36,7 +36,7 @@ final class MustacheLoader implements FixtureLoader
 
     public function load($path, array $arguments = [])
     {
-        $template = $this->loader->load($path);
+        $template = $this->loader->load($path, $arguments);
         return $this->mustache->render($template, $arguments);
     }
 
