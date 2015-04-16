@@ -42,13 +42,44 @@ Loader is compatible with text data, [mustache](https://github.com/bobthecow/mus
 * ArtLoader - Load the ASCII art.
 
 
-Terminal
+Output fixture of terminal
 ----------------------------------
 
+With **ArtLoader**, you can load the color ring text data.
 
+### Create a fixture file
 
+Create a fixture file.  
+Mark the text to apply the color in the tag.  
 
+```text
+<green>#######</green>
+<green>#</green>
+<green>#</green>
+<green>#####</green>
+<green>#</green>
+<green>#</green>
+<green>#</green>
+```
 
+### Load of Output fixture
+
+```php
+$loaders = new LoaderContainer([
+    new ArtLoader(new MustacheLoader(new TextLoader()))
+]);
+
+$fixtures = new FixtureContainer([
+    'art:default:header' => __DIR__ . '/art.txt'
+]);
+
+$fixture = new FileFixture($fixtures, $loaders);
+$content = $fixture->load('art:default:header');
+
+print $content;
+```
+
+![Result of ArtLoader](https://raw.githubusercontent.com/holyshared/file-fixture/master/art.png "Result of ArtLoader")
 
 
 Configuration file
