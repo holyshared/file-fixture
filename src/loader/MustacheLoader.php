@@ -11,6 +11,7 @@
 
 namespace holyshared\fixture\loader;
 
+use holyshared\fixture\Loadable;
 use holyshared\fixture\FixtureLoader;
 use Mustache_Engine;
 
@@ -28,7 +29,7 @@ final class MustacheLoader implements FixtureLoader
         return static::NAME;
     }
 
-    public function __construct(FixtureLoader $loader)
+    public function __construct(Loadable $loader)
     {
         $this->loader = $loader;
         $this->mustache = new Mustache_Engine();
