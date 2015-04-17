@@ -32,12 +32,20 @@ final class CacheLoader implements Loadable
     /**
      * Create a new cache loader
      *
-     * @param \holyshared\fixture\Loadable
+     * @param \holyshared\fixture\FixtureLoader
      */
-    public function __construct(Loadable $loader)
+    public function __construct(FixtureLoader $loader)
     {
         $this->loader = $loader;
         $this->caches = new Dictionary();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return $this->loader->getName();
     }
 
     /**
