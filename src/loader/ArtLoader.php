@@ -21,15 +21,34 @@ final class ArtLoader implements FixtureLoader
 {
     const NAME = 'art';
 
+    /**
+     * @var League\CLImate\CLImate
+     */
     private $cli;
+
+    /**
+     * @var League\CLImate\Util\Output
+     */
     private $output;
+
+    /**
+     * @var \holyshared\fixture\Loadable
+     */
     private $loader;
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return static::NAME;
     }
 
+    /**
+     * Create a new art loader
+     *
+     * @param \holyshared\fixture\Loadable
+     */
     public function __construct(Loadable $loader)
     {
         $this->output = new Output();
@@ -41,6 +60,9 @@ final class ArtLoader implements FixtureLoader
         $this->loader = $loader;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function load($path, array $arguments = [])
     {
         $content = $this->loader->load($path, $arguments);

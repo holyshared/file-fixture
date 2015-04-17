@@ -21,20 +21,38 @@ final class MustacheLoader implements FixtureLoader
 
     const NAME = 'mustache';
 
+    /**
+     * @var \holyshared\fixture\Loadable
+     */
     private $loader;
+
+    /**
+     * @var \Mustache_Engine
+     */
     private $mustache;
 
-    public function getName()
-    {
-        return static::NAME;
-    }
-
+    /**
+     * Create a new template loader of mustache
+     *
+     * @param \holyshared\fixture\Loadable
+     */
     public function __construct(Loadable $loader)
     {
         $this->loader = $loader;
         $this->mustache = new Mustache_Engine();
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return static::NAME;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function load($path, array $arguments = [])
     {
         $template = $this->loader->load($path, $arguments);

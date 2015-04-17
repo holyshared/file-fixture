@@ -19,11 +19,17 @@ final class TextLoader implements FixtureLoader
 
     const NAME = 'text';
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return static::NAME;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function load($path, array $arguments = [])
     {
         if (file_exists($path) === false) {
