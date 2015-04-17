@@ -11,6 +11,7 @@
 
 namespace holyshared\fixture\loader;
 
+use holyshared\fixture\Loadable;
 use holyshared\fixture\FixtureLoader;
 use League\CLImate\CLImate;
 use League\CLImate\Util\Output;
@@ -18,6 +19,7 @@ use League\CLImate\Util\Output;
 
 final class ArtLoader implements FixtureLoader
 {
+    const NAME = 'art';
 
     private $cli;
     private $output;
@@ -25,10 +27,10 @@ final class ArtLoader implements FixtureLoader
 
     public function getName()
     {
-        return 'art';
+        return static::NAME;
     }
 
-    public function __construct(FixtureLoader $loader)
+    public function __construct(Loadable $loader)
     {
         $this->output = new Output();
         $this->output->sameLine();

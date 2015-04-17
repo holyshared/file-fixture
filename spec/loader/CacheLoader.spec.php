@@ -10,7 +10,7 @@ describe('CacheLoader', function() {
             $this->template = __DIR__ . '/../fixtures/static.txt';
             $this->prophet = new Prophet();
 
-            $loader = $this->prophet->prophesize('holyshared\fixture\FixtureLoader');
+            $loader = $this->prophet->prophesize('holyshared\fixture\Loadable');
             $loader->load($this->template, [])
                 ->willReturn("static\n")
                 ->shouldBeCalledTimes(1);

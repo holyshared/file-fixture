@@ -11,11 +11,12 @@
 
 namespace holyshared\fixture\loader;
 
+use holyshared\fixture\Loadable;
 use holyshared\fixture\FixtureLoader;
 use Collections\Dictionary;
 
 
-final class CacheLoader implements FixtureLoader
+final class CacheLoader implements Loadable
 {
 
     /**
@@ -29,17 +30,12 @@ final class CacheLoader implements FixtureLoader
     private $caches;
 
     /**
-     * @param \holyshared\fixture\FixtureLoader
+     * @param \holyshared\fixture\Loadable
      */
-    public function __construct(FixtureLoader $loader)
+    public function __construct(Loadable $loader)
     {
         $this->loader = $loader;
         $this->caches = new Dictionary();
-    }
-
-    public function getName()
-    {
-        return 'cache';
     }
 
     public function load($path, array $arguments = [])
