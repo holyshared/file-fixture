@@ -14,18 +14,32 @@ namespace holyshared\fixture;
 class ArrayFlattener
 {
 
+    /**
+     * @var \holyshared\fixture\PathRecorder
+     */
     private $currentPath;
 
+    /**
+     * @param string $segment
+     */
     public function __construct($segment = ':')
     {
         $this->currentPath = new PathRecorder($segment);
     }
 
+    /**
+     * @param array $values
+     * @return array
+     */
     public function flatten(array $values = [])
     {
         return $this->walkKeyIndexArray($values);
     }
 
+    /**
+     * @param array $values
+     * @return array
+     */
     private function walkKeyIndexArray(array $values = [])
     {
         $result = [];
