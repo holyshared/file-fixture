@@ -11,7 +11,7 @@
 
 namespace holyshared\fixture;
 
-class PathSegment
+final class PathRecorder
 {
 
     /**
@@ -19,24 +19,46 @@ class PathSegment
      */
     private $path = [];
 
-    public function __construct()
+    /**
+     * @var string
+     */
+    private $pathSegment;
+
+    /**
+     * @param string $pathSegment
+     */
+    public function __construct($pathSegment = ':')
     {
         $this->path = [];
+        $this->pathSegment = $pathSegment;
     }
 
+    /**
+     * Move to the path of the specified name
+     *
+     * @param string $path
+     */
     public function moveTo($path)
     {
         $this->path[] = $path;
     }
 
+    /**
+     * Move to the path of parent
+     */
     public function moveParent()
     {
         array_pop($this->path);
     }
 
+    /**
+     * Get the path of current
+     *
+     * @return string
+     */
     public function current()
     {
-        return implode($this->path, ':');
+        return implode($this->path, $this->pathSegment);
     }
 
     public function __toString()

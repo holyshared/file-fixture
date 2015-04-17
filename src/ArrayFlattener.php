@@ -14,14 +14,11 @@ namespace holyshared\fixture;
 class ArrayFlattener
 {
 
-    private $segment;
     private $currentPath;
-
 
     public function __construct($segment = ':')
     {
-        $this->segment = $segment;
-        $this->currentPath = new PathSegment;
+        $this->currentPath = new PathRecorder($segment);
     }
 
     public function flatten(array $values = [])
@@ -29,11 +26,11 @@ class ArrayFlattener
         return $this->walkKeyIndexArray($values);
     }
 
-    private function walkKeyIndexArray(array $configValues = [])
+    private function walkKeyIndexArray(array $values = [])
     {
         $result = [];
 
-        foreach ($configValues as $path => $value) {
+        foreach ($values as $path => $value) {
             $this->currentPath->moveTo($path);
 
             if (is_array($value)) {
