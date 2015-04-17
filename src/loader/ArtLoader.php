@@ -22,12 +22,12 @@ final class ArtLoader implements FixtureLoader
     const NAME = 'art';
 
     /**
-     * @var League\CLImate\CLImate
+     * @var \League\CLImate\CLImate
      */
     private $cli;
 
     /**
-     * @var League\CLImate\Util\Output
+     * @var \League\CLImate\Util\Output
      */
     private $output;
 
