@@ -13,6 +13,19 @@ namespace holyshared\fixture;
 
 interface Container
 {
+    /**
+     * Get the item
+     *
+     * @param string $name
+     * @return mixed
+     */
     public function get($name);
-    public function has($name);
+
+    /**
+     * Examine whether the item with the specified name exists
+     *
+     * @param string $name
+     * @return bool
+     */
+     public function has($name);
 }

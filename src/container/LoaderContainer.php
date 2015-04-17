@@ -16,7 +16,7 @@ use holyshared\fixture\Container;
 use holyshared\fixture\FixtureLoader;
 
 
-class LoaderContainer implements Container
+final class LoaderContainer implements Container
 {
 
     /**
@@ -33,22 +33,44 @@ class LoaderContainer implements Container
         $this->registerAll($loaders);
     }
 
+    /**
+     * Get the loader of fixture
+     *
+     * @param string $name
+     * @return \holyshared\fixture\FixtureLoader
+     */
     public function get($name)
     {
         return $this->loaders->get($name);
     }
 
+    /**
+     * @param string $name
+     * @return bool
+     */
     public function has($name)
     {
         return $this->loaders->containsKey($name);
     }
 
+    /**
+     * Register the loader of fixture
+     *
+     * @param \holyshared\fixture\FixtureLoader $loader
+     * @return holyshared\fixture\container\LoaderContainer
+     */
     public function register(FixtureLoader $loader)
     {
         $this->loaders->add($loader->getName(), $loader);
         return $this;
     }
 
+    /**
+     * Register all the loader of fixture
+     *
+     * @param \holyshared\fixture\FixtureLoader[] $loaders
+     * @return holyshared\fixture\container\LoaderContainer
+     */
     public function registerAll(array $loaders = [])
     {
         foreach ($loaders as $loader) {
