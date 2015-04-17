@@ -13,5 +13,9 @@ namespace holyshared\fixture;
 
 interface Loadable
 {
-    public function load($name, array $arguments = []);
+    /**
+     * @param string $path
+     * @param array $arguments
+     */
+     public function load($path, array $arguments = []);
 }
