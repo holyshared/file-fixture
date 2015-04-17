@@ -19,6 +19,7 @@ use League\CLImate\Util\Output;
 
 final class ArtLoader implements FixtureLoader
 {
+    const NAME = 'art';
 
     private $cli;
     private $output;
@@ -26,7 +27,7 @@ final class ArtLoader implements FixtureLoader
 
     public function getName()
     {
-        return 'art';
+        return static::NAME;
     }
 
     public function __construct(Loadable $loader)

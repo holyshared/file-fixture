@@ -16,7 +16,7 @@ use holyshared\fixture\FixtureLoader;
 use Collections\Dictionary;
 
 
-final class CacheLoader implements FixtureLoader
+final class CacheLoader implements Loadable
 {
 
     /**
@@ -36,11 +36,6 @@ final class CacheLoader implements FixtureLoader
     {
         $this->loader = $loader;
         $this->caches = new Dictionary();
-    }
-
-    public function getName()
-    {
-        return 'cache';
     }
 
     public function load($path, array $arguments = [])
