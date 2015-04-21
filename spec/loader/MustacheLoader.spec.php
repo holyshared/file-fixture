@@ -12,7 +12,7 @@ describe('MustacheLoader', function() {
                 'name' => 'foo'
             ];
             $this->prophet = new Prophet();
-            $loader = $this->prophet->prophesize('holyshared\fixture\Loadable');
+            $loader = $this->prophet->prophesize('holyshared\fixture\Loader');
             $loader->load($this->template, $this->values)->willReturn('{{name}}');
 
             $this->loader = new MustacheLoader($loader->reveal());

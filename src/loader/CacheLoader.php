@@ -11,12 +11,12 @@
 
 namespace holyshared\fixture\loader;
 
-use holyshared\fixture\Loadable;
+use holyshared\fixture\Loader;
 use holyshared\fixture\FixtureLoader;
 use Collections\Dictionary;
 
 
-final class CacheLoader implements Loadable
+final class CacheLoader implements Loader
 {
 
     /**

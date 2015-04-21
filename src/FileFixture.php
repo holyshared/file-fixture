@@ -15,7 +15,7 @@ use holyshared\fixture\Container;
 use Yosymfony\Toml\Toml;
 
 
-class FileFixture implements Loadable
+class FileFixture implements Loader
 {
 
     private $loaders;

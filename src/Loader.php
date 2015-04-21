@@ -11,7 +11,7 @@
 
 namespace holyshared\fixture;
 
-interface Loadable
+interface Loader
 {
     /**
      * Load the content of fixture file

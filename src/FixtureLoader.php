@@ -11,7 +11,7 @@
 
 namespace holyshared\fixture;
 
-interface FixtureLoader extends Loadable
+interface FixtureLoader extends Loader
 {
     /**
      * Get the loader name of fixture file

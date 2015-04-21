@@ -14,7 +14,7 @@ describe('ArtLoader', function() {
 
             $this->prophet = new Prophet();
 
-            $loader = $this->prophet->prophesize('holyshared\fixture\Loadable');
+            $loader = $this->prophet->prophesize('holyshared\fixture\Loader');
             $loader->load($this->template, $this->values)->willReturn("<green>foo</green>\n");
 
             $this->loader = new ArtLoader($loader->reveal());
