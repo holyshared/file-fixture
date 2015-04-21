@@ -20,7 +20,7 @@ final class CacheLoader implements Loadable
 {
 
     /**
-     * @var \holyshared\fixture\Loadable
+     * @var \holyshared\fixture\FixtureLoader
      */
     private $loader;
 
