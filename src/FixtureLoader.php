@@ -13,5 +13,10 @@ namespace holyshared\fixture;
 
 interface FixtureLoader extends Loadable
 {
+    /**
+     * Get the loader name of fixture file
+     *
+     * @return string loader name
+     */
     public function getName();
 }

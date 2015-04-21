@@ -20,7 +20,7 @@ final class CacheLoader implements Loadable
 {
 
     /**
-     * @var \holyshared\fixture\FixtureLoader
+     * @var \holyshared\fixture\Loadable
      */
     private $loader;
 
@@ -30,14 +30,27 @@ final class CacheLoader implements Loadable
     private $caches;
 
     /**
-     * @param \holyshared\fixture\Loadable
+     * Create a new cache loader
+     *
+     * @param \holyshared\fixture\FixtureLoader
      */
-    public function __construct(Loadable $loader)
+    public function __construct(FixtureLoader $loader)
     {
         $this->loader = $loader;
         $this->caches = new Dictionary();
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return $this->loader->getName();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function load($path, array $arguments = [])
     {
         if ($this->caches->containsKey($path) === false) {

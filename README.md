@@ -117,7 +117,7 @@ The name of this fixture will be **mustache:default:successMessage**.
 ### Load of fixture
 
 Load the fixture by specifying the name.  
-When the load is successful, I will return the results of template of [mustache](https://github.com/bobthecow/mustache.php) has been processed.  
+When the load is successful, will return the results of template of [mustache](https://github.com/bobthecow/mustache.php) has been processed.  
 
 ```php
 $textLoader = new TextLoader();
