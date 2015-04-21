@@ -35,8 +35,9 @@ final class TextLoader implements FixtureLoader
         if (file_exists($path) === false) {
             throw new FixtureFileNotFoundException("File {$path} was not found");
         }
+        $content = file_get_contents($path);
 
-        return file_get_contents($path);
+        return rtrim($content);
     }
 
 }

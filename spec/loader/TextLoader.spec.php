@@ -17,7 +17,7 @@ describe('TextLoader', function() {
         context('when file exists', function() {
             it('return loaded content', function() {
                 $content = $this->loader->load($this->template);
-                expect($content)->toEqual("static\n");
+                expect($content)->toEqual("static");
             });
         });
         context('when file not exists', function() {
