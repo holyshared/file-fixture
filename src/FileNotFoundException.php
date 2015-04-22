@@ -12,7 +12,17 @@
 namespace holyshared\fixture;
 
 use RuntimeException;
+use Exception;
 
 class FileNotFoundException extends RuntimeException
 {
+    /**
+     * @param string $path
+     * @param int $code
+     * @param Exception $previous
+     */
+    public function __construct($path, $code = 0, Exception $previous = null)
+    {
+        parent::__construct("File {$path} was not found", $code, $previous);
+    }
 }

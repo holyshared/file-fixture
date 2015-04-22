@@ -7,13 +7,24 @@ use holyshared\fixture\factory\FixtureContainerFactory;
 describe('FixtureContainerFactory', function() {
     describe('#createFromFile', function() {
         beforeEach(function() {
-            $factory = new FixtureContainerFactory();
-            $this->container = $factory->createFromFile(__DIR__ . '/../fixtures/config.toml');
+            $this->factory = new FixtureContainerFactory();
         });
-        it('return FixtureContainer', function() {
-            expect($this->container)->toBeAnInstanceOf('holyshared\fixture\container\FixtureContainer');
-            expect($this->container->get('static:loader:default:success'))->toEndWith('static.txt');
-            expect($this->container->get('static:loader:default:failure'))->toEndWith('static.txt');
+        context('when file exists', function() {
+            beforeEach(function() {
+                $this->container = $this->factory->createFromFile(__DIR__ . '/../fixtures/config.toml');
+            });
+            it('return FixtureContainer', function() {
+                expect($this->container)->toBeAnInstanceOf('holyshared\fixture\container\FixtureContainer');
+                expect($this->container->get('static:loader:default:success'))->toEndWith('static.txt');
+                expect($this->container->get('static:loader:default:failure'))->toEndWith('static.txt');
+            });
+        });
+        context('when file not exists', function() {
+            it('throw ConfigFileNotFoundException', function() {
+                expect(function() {
+                    $this->factory->createFromFile(__DIR__ . '/not_found_config.toml');
+                })->toThrow('holyshared\fixture\factory\ConfigFileNotFoundException');
+            });
         });
     });
     describe('#createFromArray', function() {

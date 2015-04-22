@@ -31,15 +31,21 @@ class FixtureContainerFactory implements ContainerFactory
 
     public function createFromFile($configFile)
     {
-        $configFilePath = PathFactory::instance()->create($configFile);
-        $configFileDirectory = $configFilePath->parent();
+        $configPath = PathFactory::instance()->create($configFile);
+        $loadConfigFile = $configPath->normalize();
 
-        $configValues = Toml::parse( $configFilePath->normalize() );
+        if (file_exists($loadConfigFile) === false) {
+            throw new ConfigFileNotFoundException($loadConfigFile);
+        }
+
+        $configDirectory = $configPath->parent();
+
+        $configValues = Toml::parse( $loadConfigFile );
         $result = $this->flattener->flatten($configValues);
 
         foreach ($result as $key => $fixturePath) {
             $fixtureRelativePath = RelativePath::fromString($fixturePath);
-            $fixturePath = $configFileDirectory->join($fixtureRelativePath);
+            $fixturePath = $configDirectory->join($fixtureRelativePath);
             $result[$key] = (string) $fixturePath->normalize();
         }
 
