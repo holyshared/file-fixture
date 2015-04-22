@@ -32,6 +32,11 @@ class FixtureContainerFactory implements ContainerFactory
     public function createFromFile($configFile)
     {
         $configFilePath = PathFactory::instance()->create($configFile);
+
+        if (file_exists($configFilePath) === false) {
+            throw new ConfigFileNotFoundException("File {$path} was not found");
+        }
+
         $configFileDirectory = $configFilePath->parent();
 
         $configValues = Toml::parse( $configFilePath->normalize() );
