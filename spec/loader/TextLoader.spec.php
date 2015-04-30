@@ -1,9 +1,9 @@
 <?php
 
 use holyshared\fixture\loader\TextLoader;
+use holyshared\fixture\loader\FixtureFileNotFoundException;
 
-
-describe('TextLoader', function() {
+describe(TextLoader::class, function() {
     describe('#getName', function() {
         it('return loader name', function() {
             expect((new TextLoader())->getName())->toEqual("text");
@@ -24,7 +24,7 @@ describe('TextLoader', function() {
             it('throw FixtureFileNotFoundException exception', function() {
                 expect(function() {
                     $this->loader->load('not_found.txt');
-                })->toThrow('holyshared\fixture\loader\FixtureFileNotFoundException');
+                })->toThrow(FixtureFileNotFoundException::class);
             });
         });
     });
