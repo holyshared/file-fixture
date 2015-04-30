@@ -1,15 +1,16 @@
 <?php
 
 use holyshared\fixture\loader\CacheLoader;
+use holyshared\fixture\FixtureLoader;
 use Prophecy\Prophet;
 
 
-describe('CacheLoader', function() {
+describe(CacheLoader::class, function() {
     describe('#getName', function() {
         beforeEach(function() {
             $this->prophet = new Prophet();
 
-            $loader = $this->prophet->prophesize('holyshared\fixture\FixtureLoader');
+            $loader = $this->prophet->prophesize(FixtureLoader::class);
             $loader->getName()->willReturn('text');
 
             $this->loader = new CacheLoader($loader->reveal());
@@ -23,7 +24,7 @@ describe('CacheLoader', function() {
             $this->template = __DIR__ . '/../fixtures/static.txt';
             $this->prophet = new Prophet();
 
-            $loader = $this->prophet->prophesize('holyshared\fixture\FixtureLoader');
+            $loader = $this->prophet->prophesize(FixtureLoader::class);
             $loader->load($this->template, [])
                 ->willReturn("static\n")
                 ->shouldBeCalledTimes(1);

@@ -3,10 +3,11 @@
 use holyshared\fixture\loader\TextLoader;
 use holyshared\fixture\loader\ArtLoader;
 use holyshared\fixture\loader\MustacheLoader;
+use holyshared\fixture\Loader;
 use Prophecy\Prophet;
 
 
-describe('ArtLoader', function() {
+describe(ArtLoader::class, function() {
     describe('#load', function() {
         beforeEach(function() {
             $this->values = [ 'name' => 'foo' ];
@@ -14,7 +15,7 @@ describe('ArtLoader', function() {
 
             $this->prophet = new Prophet();
 
-            $loader = $this->prophet->prophesize('holyshared\fixture\Loader');
+            $loader = $this->prophet->prophesize(Loader::class);
             $loader->load($this->template, $this->values)->willReturn("<green>foo</green>\n");
 
             $this->loader = new ArtLoader($loader->reveal());

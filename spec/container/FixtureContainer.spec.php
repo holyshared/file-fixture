@@ -2,7 +2,7 @@
 
 use holyshared\fixture\container\FixtureContainer;
 
-describe('FixtureContainer', function() {
+describe(FixtureContainer::class, function() {
     beforeEach(function() {
         $this->container = new FixtureContainer([
             'foo' => 'bar'
