@@ -2,7 +2,7 @@
 
 use holyshared\fixture\ArrayFlattener;
 
-describe('ArrayFlattener', function() {
+describe(ArrayFlattener::class, function() {
     describe('#flatten', function() {
         beforeEach(function() {
             $values = [

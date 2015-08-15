@@ -11,7 +11,7 @@
 
 namespace holyshared\fixture\loader;
 
-use holyshared\fixture\Loadable;
+use holyshared\fixture\Loader;
 use holyshared\fixture\FixtureLoader;
 use Mustache_Engine;
 
@@ -22,7 +22,7 @@ final class MustacheLoader implements FixtureLoader
     const NAME = 'mustache';
 
     /**
-     * @var \holyshared\fixture\Loadable
+     * @var \holyshared\fixture\Loader
      */
     private $loader;
 
@@ -34,9 +34,9 @@ final class MustacheLoader implements FixtureLoader
     /**
      * Create a new template loader of mustache
      *
-     * @param \holyshared\fixture\Loadable
+     * @param \holyshared\fixture\Loader
      */
-    public function __construct(Loadable $loader)
+    public function __construct(Loader $loader)
     {
         $this->loader = $loader;
         $this->mustache = new Mustache_Engine();

@@ -1,10 +1,11 @@
 <?php
 
 use holyshared\fixture\loader\TextLoader;
+use holyshared\fixture\Loader;
 use holyshared\fixture\loader\MustacheLoader;
 use Prophecy\Prophet;
 
-describe('MustacheLoader', function() {
+describe(MustacheLoader::class, function() {
     describe('#load', function() {
         beforeEach(function() {
             $this->template = __DIR__ . '/../fixtures/template.ms';
@@ -12,7 +13,7 @@ describe('MustacheLoader', function() {
                 'name' => 'foo'
             ];
             $this->prophet = new Prophet();
-            $loader = $this->prophet->prophesize('holyshared\fixture\Loadable');
+            $loader = $this->prophet->prophesize(Loader::class);
             $loader->load($this->template, $this->values)->willReturn('{{name}}');
 
             $this->loader = new MustacheLoader($loader->reveal());

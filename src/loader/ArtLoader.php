@@ -11,7 +11,7 @@
 
 namespace holyshared\fixture\loader;
 
-use holyshared\fixture\Loadable;
+use holyshared\fixture\Loader;
 use holyshared\fixture\FixtureLoader;
 use League\CLImate\CLImate;
 use League\CLImate\Util\Output;
@@ -32,7 +32,7 @@ final class ArtLoader implements FixtureLoader
     private $output;
 
     /**
-     * @var \holyshared\fixture\Loadable
+     * @var \holyshared\fixture\Loader
      */
     private $loader;
 
@@ -47,9 +47,9 @@ final class ArtLoader implements FixtureLoader
     /**
      * Create a new art loader
      *
-     * @param \holyshared\fixture\Loadable
+     * @param \holyshared\fixture\Loader
      */
-    public function __construct(Loadable $loader)
+    public function __construct(Loader $loader)
     {
         $this->output = new Output();
         $this->output->sameLine();

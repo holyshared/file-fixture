@@ -9,14 +9,10 @@
  * with this source code in the file LICENSE.
  */
 
-namespace holyshared\fixture;
+namespace holyshared\fixture\factory;
 
-interface FixtureLoader extends Loader
+use holyshared\fixture\FileNotFoundException;
+
+class ConfigFileNotFoundException extends FileNotFoundException
 {
-    /**
-     * Get the loader name of fixture file
-     *
-     * @return string loader name
-     */
-    public function getName();
 }
