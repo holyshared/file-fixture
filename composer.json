@@ -15,7 +15,7 @@
         "yosymfony/toml": "~0.3",
         "easyframework/collections": "~4.0",
         "league/climate": "~3.2",
-        "mustache/mustache": "~2.7",
+        "mustache/mustache": "~2.9",
         "eloquent/pathogen": "~0.6"
     },
     "require-dev": {
@@ -25,7 +25,7 @@
         "phpspec/prophecy": "~1.5",
         "cloak/peridot-cloak-plugin": "~2.0",
         "cloak/robo-coveralls-kit": "~2.0",
-        "codegyre/robo": "~0.5"
+        "codegyre/robo": "~0.6"
     },
     "autoload": {
         "psr-4": {
