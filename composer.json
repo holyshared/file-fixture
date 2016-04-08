@@ -15,17 +15,17 @@
         "yosymfony/toml": "~0.3",
         "easyframework/collections": "~4.1",
         "league/climate": "~3.2",
-        "mustache/mustache": "~2.9",
+        "mustache/mustache": "~2.10",
         "eloquent/pathogen": "~0.6"
     },
     "require-dev": {
-        "peridot-php/peridot": "~1.16",
+        "peridot-php/peridot": "~1.18",
         "peridot-php/peridot-dot-reporter": "~1.0",
         "expect/peridot-expect-plugin": "~3.0",
-        "phpspec/prophecy": "~1.5",
+        "phpspec/prophecy": "~1.6",
         "cloak/peridot-cloak-plugin": "~2.0",
-        "cloak/robo-coveralls-kit": "~2.0",
-        "codegyre/robo": "~0.6"
+        "cloak/robo-coveralls-kit": "~2.1",
+        "codegyre/robo": "~0.7"
     },
     "autoload": {
         "psr-4": {
