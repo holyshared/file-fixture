@@ -13,7 +13,7 @@
     "require": {
         "php": ">=5.5.0",
         "yosymfony/toml": "~0.3",
-        "easyframework/collections": "~4.1",
+        "easyframework/collections": "~5.0",
         "league/climate": "~3.2",
         "mustache/mustache": "~2.10",
         "eloquent/pathogen": "~0.6"
