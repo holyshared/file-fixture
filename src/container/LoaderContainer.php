@@ -11,7 +11,8 @@
 
 namespace holyshared\fixture\container;
 
-use Collections\Dictionary;
+use Collections\Map;
+use Collections\Pair;
 use holyshared\fixture\Container;
 use holyshared\fixture\FixtureLoader;
 
@@ -20,7 +21,7 @@ final class LoaderContainer implements Container
 {
 
     /**
-     * @var \Collections\Dictionary
+     * @var \Collections\Map
      */
     private $loaders;
 
@@ -29,7 +30,7 @@ final class LoaderContainer implements Container
      */
     public function __construct(array $loaders = [])
     {
-        $this->loaders = new Dictionary();
+        $this->loaders = new Map();
         $this->registerAll($loaders);
     }
 
@@ -61,7 +62,8 @@ final class LoaderContainer implements Container
      */
     public function register(FixtureLoader $loader)
     {
-        $this->loaders->add($loader->getName(), $loader);
+        $value = new Pair($loader->getName(), $loader);
+        $this->loaders->add($value);
         return $this;
     }
 

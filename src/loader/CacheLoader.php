@@ -12,7 +12,8 @@
 namespace holyshared\fixture\loader;
 
 use holyshared\fixture\FixtureLoader;
-use Collections\Dictionary;
+use Collections\Map;
+use Collections\Pair;
 
 
 final class CacheLoader implements FixtureLoader
@@ -24,7 +25,7 @@ final class CacheLoader implements FixtureLoader
     private $loader;
 
     /**
-     * @var \Collections\Dictionary
+     * @var \Collections\Map
      */
     private $caches;
 
@@ -36,7 +37,7 @@ final class CacheLoader implements FixtureLoader
     public function __construct(FixtureLoader $loader)
     {
         $this->loader = $loader;
-        $this->caches = new Dictionary();
+        $this->caches = new Map();
     }
 
     /**
@@ -54,7 +55,9 @@ final class CacheLoader implements FixtureLoader
     {
         if ($this->caches->containsKey($path) === false) {
             $content = $this->loader->load($path, $arguments);
-            $this->caches->add($path, $content);
+
+            $value = new Pair($path, $content);
+            $this->caches->add($value);
         }
 
         return $this->caches->get($path);

@@ -12,7 +12,7 @@
 namespace holyshared\fixture\container;
 
 
-use Collections\Dictionary;
+use Collections\Map;
 use holyshared\fixture\Container;
 
 
@@ -20,7 +20,7 @@ final class FixtureContainer implements Container
 {
 
     /**
-     * @var \Collections\Dictionary
+     * @var \Collections\Map
      */
     private $fixtures;
 
@@ -29,7 +29,7 @@ final class FixtureContainer implements Container
      */
     public function __construct(array $fixtures = [])
     {
-        $this->fixtures = Dictionary::fromArray($fixtures);
+        $this->fixtures = Map::fromArray($fixtures);
     }
 
     /**
