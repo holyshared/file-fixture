@@ -136,3 +136,9 @@ $content = $fixture->load('mustache:default:successMessage', [
 
 print $content;
 ```
+
+
+Contributors
+----------------------------------
+
+* Jérémy Marodon ([@Th3Mouk](https://github.com/Th3Mouk))
